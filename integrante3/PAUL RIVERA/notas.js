@@ -19,13 +19,17 @@ calcularPromedio = function (p1, p2, p3) {
 
 calcular = function () {
     habilitarComponente("btnGuardar");
-    let VALOR= esDigito();
+    
     let nota1 = recuperarTexto("txtNota1");
     let nota2 = recuperarTexto("txtNota2");
     let nota3 = recuperarTexto("txtNota3");
     let flot1 = parseFloat(nota1);
     let flot2 = parseFloat(nota2);
     let flot3 = parseFloat(nota3);
+    let VALOR= esDigito(nota1,0);
+    let VALOR2= esDigito(nota2,0);
+    let VALOR3= esDigito(nota3,0);
+
     let total = calcularTotal(flot1, flot2, flot3);
     let totallbl = mostrarTexto("lblCarcularTotal", total);
     let promedio = calcularPromedio(flot1, flot2, flot3);
@@ -97,45 +101,19 @@ limpiar = function () {
     deshabilitarComponente("btnGuardar");
 }
 
-esDigito = function () {
-    let mensaje;
-    let nota1 = recuperarTexto("txtNota1");
-    let nota2 = recuperarTexto("txtNota2");
-    let nota3 = recuperarTexto("txtNota3");
-    let flot1 = parseFloat(nota1);
-    let flot2 = parseFloat(nota2);
-    let flot3 = parseFloat(nota3);
 
-    let letra = flot1.charCodeAt(0);
+
+esDigito = function (caracter, posicion) {
+    let mensaje;
+    let letra = caracter.charCodeAt(posicion);
     if (letra >= 48) {
         if (letra <= 57) {
-            mensaje = true;
+            mensaje = alert("validado");
         } else {
-            mensaje = false;
+            mensaje = alert("no es un numero valido");
         }
     } else {
-        mensaje = false;
-    }
-    let letra2 = flot2.charCodeAt(0);
-    if (letra2 >= 48) {
-        if (letra2 <= 57) {
-            mensaje = true;
-        } else {
-            mensaje = false;
-        }
-    } else {
-        mensaje = false;
-    }
-
-    let letra3 = flot3.charCodeAt(0);
-    if (letra3 >= 48) {
-        if (letra3 <= 57) {
-            mensaje = true;
-        } else {
-            mensaje = false;
-        }
-    } else {
-        mensaje = false;
+        mensaje = alert("no es un numero valido");
     }
     return mensaje;
 }
