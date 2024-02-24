@@ -18,17 +18,36 @@ calcularPromedio = function (p1, p2, p3) {
 }
 
 calcular = function () {
+    let error = false;
+    let valorApellido = recuperarTexto("txtApellido");
     let nota1Recuperado = recuperarFloat("txtNota1");
     let nota2Recuperado = recuperarFloat("txtNota2");
     let nota3Recuperado = recuperarFloat("txtNota3");
+    let errores
+    if(valorApellido==""){
+        errores="Campo obligatorio"
+        error=true
+    }else if(valorApellido.length < 12){
+        errores="El apellido debe de tener almenos 12 caracteres"
+        error=true;
+    }
+
     let suma = calcularTotal(nota1Recuperado, nota2Recuperado, nota3Recuperado);
     mostrarTexto("Suma", suma);
     let promedio = calcularPromedio(nota1Recuperado, nota2Recuperado, nota3Recuperado);
     mostrarTexto("Promedio", promedio);
-    habilitarComponente("btnGuardar");
-}
 
-guardar = function(){
+    if(error == false){
+        habilitarComponente("btnGuardar");
+        mostrarTexto("error","");
+    }else{
+        mostrarTexto("error",errores);
+        deshabilitarComponente("btnGuardar")
+    }
+}    
+    
+
+guardar = function () {
     let valorNombre = recuperarTexto("txtNombre");
     let valorApellido = recuperarTexto("txtApellido");
     let nota1Recuperado = recuperarFloat("txtNota1");
@@ -38,14 +57,14 @@ guardar = function(){
     mostrarTexto("Suma", suma);
     let promedio = calcularPromedio(nota1Recuperado, nota2Recuperado, nota3Recuperado);
     mostrarTexto("Promedio", promedio);
-    let estudiante={};
-    estudiante.nombre=valorNombre;
-    estudiante.apellido=valorApellido;
-    estudiante.nota1=nota1Recuperado;
-    estudiante.nota2=nota2Recuperado;
-    estudiante.nota3=nota3Recuperado;
-    estudiante.total=suma;
-    estudiante.promedio=promedio;
+    let estudiante = {};
+    estudiante.nombre = valorNombre;
+    estudiante.apellido = valorApellido;
+    estudiante.nota1 = nota1Recuperado;
+    estudiante.nota2 = nota2Recuperado;
+    estudiante.nota3 = nota3Recuperado;
+    estudiante.total = suma;
+    estudiante.promedio = promedio;
     estudiantes.push(estudiante)
     alert("NOTAS AGREGADAS")
     mostrarEstudiantes()
