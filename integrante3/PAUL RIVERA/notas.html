@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="notas.css" rel="stylesheet" />
+    <script src="notas.js"> </script>
+    <script src="../../utilitarios.js"></script>
+</head>
+
+<body onload="mostrarEstudiante();">
+    <div class="menu">
+        <div class="logoEscuela">
+            <img src="./imagenes/empleado.png" width="20%" />
+        </div>
+    </div>
+    <div id="divEmpleado">
+        <div class="principal">
+
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    TOTAL
+                </div>
+                <div>
+                    <div class="info" id="lblCarcularTotal">0.0</div>
+                </div>
+            </div>
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    PROMEDIO
+                </div>
+                <div>
+                    <div class="info" id="lblCarcularPromedio">0.0</div>
+                </div>
+            </div>
+
+            <div class="area">
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        NOMBRE
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtNombre" />
+                        <div class="error" id="lblErrorCedula"></div>
+                    </div>
+                </div>
+        
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        APELLIDO
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtApellido" />
+                        <div class="error" id="lblErrorCedula"></div>
+                    </div>
+                </div>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        NOTA1
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtNota1" />
+                        <div class="error" id="lblErrorNombre"></div>
+                    </div>
+                </div>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        NOTA2
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtNota2" />
+                        <div class="error" id="lblErrorApellido"></div>
+                    </div>
+                </div>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        NOTA3
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtNota3" />
+                        <div class="error" id="lblErrorSueldo"></div>
+                    </div>
+                </div>
+                <div class="botones">
+                    <div class="contenedorBoton">
+                        <input type="button" value="CALCULAR" class="estiloBoton" onclick="calcular();"/>
+                    </div>
+                    <div class="contenedorBoton">
+                        <input type="button" value="GUARDAR" class="estiloBoton" id="btnGuardar" onclick="guardar();"/>
+                    </div>
+                </div>
+
+                <div id="tablaEstudiante" class="areaTabla">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <div id="divResumen">       
+            <div class="logoEscuela">
+                AUTOR PAUL RIVERA
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
